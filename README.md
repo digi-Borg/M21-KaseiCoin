@@ -16,22 +16,24 @@ KaseiCoin will be a fungible token that is ERC-20 compliant. You will launch a c
 #
 ## Evaluation Evidence
 
-In the completed Solidity KaseiCoin Crowdsale smart contract a folder named `Execution_Evidence` contains at least eight images. These images are confirms that the deposit and withdrawal transactions are designed to test the `KaseiCoin.sol`, `KaseiCoinCrowdsale.sol` and `KaseiCoinCrowdsaleDeployer` functionality in the JavaScript VM, as expected.
+In the completed Solidity KaseiCoin Crowdsale smart contract a folder named `Evaluation_Evidence` contains at least eight images. These images are confirms that the deposit and withdrawal transactions are designed to test the `KaseiCoin.sol`, `KaseiCoinCrowdsale.sol` and `KaseiCoinCrowdsaleDeployer` functionality in the JavaScript VM, as expected.
 
-After deploying the contract, it’s time to test its functionality! After each step, capture a screenshot of the execution, and then save it in a folder named `Execution_Evidence`. 
+After deploying the contract, it’s time to test its functionality! After each step, capture a screenshot of the execution, and then save it in a folder named `Evaluation_Evidence`. 
 
 To interact with your compiled & deployed smart contract, complete the following steps. 
  
 
-1. Compile in Solidity `KaseiCoin.sol` smart contract: 
+1. Compile the `KaseiCoin.sol` contract using compiler version 0.5.5; take a screenshot of the successful compilation of the contract, and add it to the Evaluation_Evidence section: 
 
-![KaseiC-Compiled](./Evaluation_Evidence/KaseiC_Compiledp1-2022-08-09170347.png)
+    ![KaseiC-Compiled](./Evaluation_Evidence/KaseiC_Compiledp1-2022-08-09170347.png)
 
-2. Use the `setAccounts` function to define the authorized Ethereum address that will be able to withdraw funds from your contract. 
+2. Define the `KaseiCoinCrowdsale.sol` contract inheriting OpenZeppelin contracts `Crowdsale` & `MintedCrowdsale`; check for any errors and debug as needed; compile the contract using compiler version 0.5.5; take a screenshot of the successful compilation of the contract, and add it to the Evaluation_Evidence section. 
 
-    ![KaseiCoinDeployer](./Evaluation_Evidence/KCCrowdSale_CompiledDeployp2-2022-08-09164602.png)
+    ![KaseiCoinCrowdsale](./Evaluation_Evidence/KCCrowdsale_Compiledp22022-08-09182256.png)
 
-2. Test the deposit functionality of the smart contract by sending the following amounts of ether. After each transaction, use the `contractBalance` function to verify that the funds were added to the contract:
+3. Set the `KaseiCoinCrowdsale` contract as a minter; have the `KaseiCoinCrowdsaleDeployer` renounce its minter role; compile the contract using compiler version 0.5.5; check for any errors and debug as needed; take a screenshot of the successful compilation of the contract, and add it to the Evaluation_Evidence section: 
+
+    ![KaseiCoinDeployer](./Evaluation_Evidence/KCCrowdSaleDeployer_CompiledDeployp3-2022-08-09164602.png)
 
 - Transaction 1- Send 1 ether as wei: 
     ![Deposit1Eth](./Execution_Results/Dep_1Eth-2022-08-03175944.png)
