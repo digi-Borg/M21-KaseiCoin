@@ -1,16 +1,12 @@
 # M21-KaseiCoin 
+Minting tokens for a CrowdSale  
 
 ![KaseiCoinCrowdsale-Title](./Images/KAI_Crowdsale_Title-2022-08-09162204.png) 
-Minting tokens for a CrowdSale  
 
 *"Leading a project to develop a new cryptocurrency monetary system based on blockchain called KaseiCoin for a new Mars colony."* 
 
 
 ## Background 
-
-This fintech startup company has recently hired a team to build smart contracts to automate many of the institutions’ financial processes and features, such as hosting joint savings accounts. The team intends to be the pioneer of the finance industry with its own cross-border Ethereum-compatible blockchain that connects financial institutions. 
-
-To automate the creation of joint savings accounts, implementation of a Solidity smart contract is constructed that accepts two user addresses. These addresses will be able to control a joint savings account. The smart contract will use ether management ffunctions to implement a financial institution’s requirements for providing the features of the joint savings account. These eatures will consist of the ability to deposit and withdraw funds from the account.  
 
 After waiting for years and passing several tests, you were selected by the Martian Aerospace Agency to be part of the first human colony on Mars. As a prominent fintech professional, you were chosen to lead a project to develop a monetary system for the new Mars colony. You have decided to base this new monetary system on blockchain technology, and to define a new cryptocurrency called KaseiCoin. (“Kasei” means “Mars” in Japanese.)
 
@@ -29,11 +25,11 @@ To interact with your compiled & deployed smart contract, complete the following
 
 1. Compile in Solidity `KaseiCoin.sol` smart contract: 
 
-![KaseiC-Compiled](./Execution_Evidence/KaseiC_Compiledp1-2022-08-09170347.png)
+![KaseiC-Compiled](./Evaluation_Evidence/KaseiC_Compiledp1-2022-08-09170347.png)
 
 2. Use the `setAccounts` function to define the authorized Ethereum address that will be able to withdraw funds from your contract. 
 
-    ![KaseiCoinDeployer](./Execution_Evidence/KC_CompiledDeployp2_2022-08-09164602.png)
+    ![KaseiCoinDeployer](./Evaluation_Evidence/KCCrowdSale_CompiledDeployp2-2022-08-09164602.png)
 
 2. Test the deposit functionality of the smart contract by sending the following amounts of ether. After each transaction, use the `contractBalance` function to verify that the funds were added to the contract:
 
