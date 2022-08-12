@@ -3,59 +3,61 @@ Minting tokens for a CrowdSale
 
 ![KaseiCoinCrowdsale-Title](./Images/KAI_Crowdsale_Title-2022-08-09162204.png) 
 
-*"Leading a project to develop a new cryptocurrency monetary system based on blockchain called KaseiCoin for a new Mars colony."* 
+*"Leading a project for a monetary system to develop a new cryptocurrency called KaseiCoin for a new Mars colony."* 
 
 
 ## Background 
 
-After waiting for years and passing several tests, you were selected by the Martian Aerospace Agency to be part of the first human colony on Mars. As a prominent fintech professional, you were chosen to lead a project to develop a monetary system for the new Mars colony. You have decided to base this new monetary system on blockchain technology, and to define a new cryptocurrency called KaseiCoin. (“Kasei” means “Mars” in Japanese.)
+After waiting for years and passing several tests, being selected by the Martian Aerospace Agency a new monetary system needs to be implemented for the first human colony on Mars. As a prominent fintech professional, I was chosen to lead a project to develop a monetary system for the new Mars colony. The decision is made to base this new monetary system on blockchain technology, and to define a new cryptocurrency called KaseiCoin. (“Kasei” means “Mars” in Japanese.)
 
-KaseiCoin will be a fungible token that is ERC-20 compliant. You will launch a crowdsale that will allow people who are moving to Mars to convert their earthling money to KaseiCoin.
+KaseiCoin will be a fungible token that is ERC-20 compliant. The crowdsale contract created will manage the entire crowdsale process, allowing users to send ether to the contract and in return receive KAI, or KaseiCoin tokens. The contract will mint the tokens automatically and distribute them to buyers in one transaction. It will allow people who are moving to Mars to convert their earthling money to KaseiCoin.
 
 ---
 #
 ## Evaluation Evidence
 
-In the completed Solidity KaseiCoin Crowdsale smart contract a folder named `Evaluation_Evidence` contains at least eight images. These images are confirms that the deposit and withdrawal transactions are designed to test the `KaseiCoin.sol`, `KaseiCoinCrowdsale.sol` and `KaseiCoinCrowdsaleDeployer` functionality in the JavaScript VM, as expected.
+In the completed Solidity KaseiCoin Crowdsale smart contract a folder named `Evaluation_Evidence` contains images. These images are confirms of performance in a real-world, pre-production test of a KaseiCoin crowdsale. The transactions are designed to test the `KaseiCoin.sol`, `KaseiCoinCrowdsale.sol` and `KaseiCoinCrowdsaleDeployer` functionality in the JavaScript VM, as expected. In order to do so, deployment of the crowdsale is to a local blockchain using Remix, MetaMask, and Ganache.
 
 After deploying the contract, it’s time to test its functionality! After each step, capture a screenshot of the execution, and then save it in a folder named `Evaluation_Evidence`. 
 
 To interact with your compiled & deployed smart contract, complete the following steps. 
  
 
-1. Compile the `KaseiCoin.sol` contract using compiler version 0.5.5; take a screenshot of the successful compilation of the contract, and add it to the Evaluation_Evidence section: 
+1. Create & compile the `KaseiCoin.sol` contract using compiler version 0.5.5; take a screenshot of the successful compilation of the contract, and add it to the Evaluation_Evidence section: 
 
     ![KaseiC-Compiled](./Evaluation_Evidence/KaseiC_Compiledp1-2022-08-09170347.png)
 
-2. Define the `KaseiCoinCrowdsale.sol` contract inheriting OpenZeppelin contracts `Crowdsale` & `MintedCrowdsale`; check for any errors and debug as needed; compile the contract using compiler version 0.5.5; take a screenshot of the successful compilation of the contract, and add it to the Evaluation_Evidence section. 
+2. Create, define & compile the `KaseiCoinCrowdsale.sol` contract inheriting OpenZeppelin contracts `Crowdsale` & `MintedCrowdsale`; check for any errors and debug as needed; compile the contract using compiler version 0.5.5; take a screenshot of the successful compilation of the contract, and add it to the Evaluation_Evidence section. 
 
     ![KaseiCoinCrowdsale](./Evaluation_Evidence/KCCrowdsale_Compiledp22022-08-09182256.png)
 
-3. Set the `KaseiCoinCrowdsale` contract as a minter; have the `KaseiCoinCrowdsaleDeployer` renounce its minter role; compile the contract using compiler version 0.5.5; check for any errors and debug as needed; take a screenshot of the successful compilation of the contract, and add it to the Evaluation_Evidence section: 
+3. Create the `KaseiCoinCrowdsaleDeployer` and add the `KaseiCoin` and `KaseiCoinCrowdsale`  contract addresses; add the `name`, `symbol`, and `wallet` parameters to the `KaseiCoinCrowdsaleDeployer`; renounce its minter role; compile the contract using compiler version 0.5.5; check for any errors and debug as needed; take a screenshot of the successful compilation of the contract, and add it to the Evaluation_Evidence section: 
 
     ![KaseiCoinDeployer](./Evaluation_Evidence/KCCrowdSaleDeployer_CompiledDeployp3-2022-08-09164602.png)
 
-- Transaction 1- Send 1 ether as wei: 
+4. Deploy the Crowdsale to a Local Blockchain
+
+- Deployment of the contract to a local blockchain with Remix, MetaMask, and Ganache.: 
     ![Deposit1Eth](./Execution_Results/Dep_1Eth-2022-08-03175944.png)
 
-- Transaction 2- Send 10 ether as wei:  
+- Use test accounts to buy new tokens from the crowdsale and check the balances associated with the test accounts.:  
     ![Deposit10Eth](./Execution_Results/Dep_10Eth-2022-08-03180618.png) 
 
-- Transaction 3- Send 5 ether as wei:
+- After purchasing tokens with test accounts, view the total supply of minted tokens and the amount of wei raised by the crowdsale.:
     ![Deposit5Eth](./Execution_Results/Dep_5Eth-2022-08-03181100.png) 
 
 
-3. Once successfully depositing funds into the contract, test it’s withdrawal functionality by withdrawing 5 ether into `accountOne` and 10 ether into `accountTwo`. After each transaction, use the `contractBalance` function to verify that the funds were withdrawn from the contract. Also, use the `lastToWithdraw` and `lastWithdrawAmount` functions to verify that the address and amount were correct.  
+5. Optional: Extend the Crowdsale Contract by Using OpenZeppelin. extend the crowdsale contract to enhance its functionality. To do so, you will use the following OpenZeppelin contracts:  
 
-- AccountOne withdrawal with the `contractBalance` function:
+- `CappedCrowdsale`: This contract allows you to cap the total amount of ether that may be raised during your crowdsale.:
 
     ![WithdrawalAcct1](./Execution_Results/Wtdrwl1_5Eth-2022-08-03182515.png) 
 
-- AccountOne withdrawal with the `lastToWithdraw` and `lastWithdrawAmount` functions: 
+- `TimedCrowdsale`: This contract allows you to set a time limit for your crowdsale by adding an opening time and a closing time: 
 
     ![WithdrawalAcct1](./Execution_Results/Wtdrwl1_5Eth2-2022-08-03182918.png)
 
-- AccountTwo withdrawal with the `contractBalance`, `lastToWithdraw` and `lastWithdrawAmount` functions: 
+- `RefundablePostDeliveryCrowdsale`: Every time you launch a crowdsale, you set a goal amount of ether to raise. If the goal is not reached, it is common practice to refund your investors. This contract adds this capability to a crowdsale: 
  
     ![WithdrawalAcct2](./Execution_Results/Wthdrwl2_10Eth-2022-08-03183403.png) 
 
@@ -64,14 +66,18 @@ To interact with your compiled & deployed smart contract, complete the following
 #
 ## Technologies
 
-The software program was built using 'Remix 0.25.1' IDE in a web app. The Remix IDE is an open-source application for developing, deploying, and administering smart contracts that run in Ethereum-based blockchains. The programming language was developed in 'Solidity 0.5.0' to create a smart contract and code that works on the Ethereum blockchain. Once compiled and deployed the code runs in the Ethereum Virtual Machine(EVM) which operates in an isolated decentralized environment mimicking the consensus engine of the Ethereum blockchain. 
+The software program was built using 'Remix 0.25.1' IDE in a web app. The Remix IDE is an open-source application for developing, deploying, and administering smart contracts that run in Ethereum-based blockchains development environment. 
+
+The programming language was developed in 'Solidity 0.5.0' to create a smart contract and code that works on the Ethereum blockchain. The OpenZeppelin library provides a variety of contracts that are related to the ERC-20 token standard. The `ERC-20` standard defines some mandatory functions for a fungible-token contract and provides critical functionality for any `ERC-20` token smart contract. The `ERC20` contract uses the SafeMath library, and the ERC20 `_transfer` function is coded to prevent integer underflow error. 
+
+Using 'Granache 2.5.4' app allows a quick setup of a local blockchain in a development environment. 'MetaMask 10.18.0' is a is a digital wallet for the digital currency blockchain. Together they operates in an isolated decentralized environment mimicking the consensus engine of the Ethereum blockchain to perform a `KaseiCoinCrowdsale` to mint coins for an ICO. 
  
 
 ---
 
 ## Installation Guide
 
-The Remix IDE is an open source application for developing, deploying, and administering smart contracts that run in Ethereum-based blockchains. First navigate to use the web version of this IDE, you don’t need to install any software for this module. Open your browser to the [Remix-Docs website](https://remix-ide.readthedocs.io/en/latest/) or use the links below. 
+The Remix IDE is an open source application for developing, deploying, and administering smart contracts that run in Ethereum-based blockchains. First navigate to use the web version of this IDE, you don’t need to install any software for this module. Open your browser to the [Remix-Docs website](https://remix-ide.readthedocs.io/en/latest/) or use the links below. The OpenZeppelin contrat library `ERC20`; `ERC20Detailed`; `Crowdsale` and `MintedCrowdsale` are from the [OpenZeppelin documentationImport](https://github.com/OpenZeppelin/openzeppelin-contracts).
 
 
 1. [Remix Online IDE](https://remix.ethereum.org) 
@@ -79,13 +85,16 @@ The Remix IDE is an open source application for developing, deploying, and admin
 
 2. [Remix Desktop IDE](https://github.com/ethereum/remix-desktop/releases) 
 
-3. Ethereum-Remix a VSCode extension, see [here](https://marketplace.visualstudio.com/items?itemName=RemixProject.ethereum-remix). The documentation for the VSCode extension is located [here](https://marketplace.visualstudio.com/items?itemName=RemixProject.ethereum-remix): 
+3. Follow the instructions on the [MetaMask Download page](https://metamask.io/download) to install MetaMask digital wallet in your web browser: 
 
-
-The following libraries are accessible:
+Import to inherit the OpenZeppelin the `ERC20`; `ERC20Detailed`; `Crowdsale` and `MintedCrowdsale` contracts in the appropiate program applications:
 ```
-[web3 version 1.5.2](https://web3js.readthedocs.io/en/1.0/)
-[ethers.js](https://docs.ethers.io/) 
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5.0/contracts/token/ERC20/ERC20.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5.0/contracts/token/ERC20/ERC20Detailed.sol"; 
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5.0/contracts/token/ERC20/ERC20Mintable.sol"; 
+import "./ArcadeTokenMintable.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5.0/contracts/crowdsale/Crowdsale.sol";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5.0/contracts/crowdsale/emission/MintedCrowdsale.sol";
 remix 
 ```
 
@@ -96,7 +105,9 @@ remix
 
 This application is deployed and run for smart contract transactions to deposit and withdraw `eth` between user accounts in the EthereumVM.  It is launched from the Remix 0.25.1 using Solidity language for the **.sol** file to build the ` joint_savings.sol`. The 'Remix' GUI on the left side of the web page utilizes the program code to run the Smartcontracts Ethereum blockchain transactions. It is deployed in the Remix VM(London) JavaScript Environment utilizing the ‘Solidity’ compiler and tools. 
 The user of the program application operates through the Remix IDE website that provides functionality to create an EthereumVM for blockchain transactions and perform the following:  
-To interact with your deployed smart contract, select an ‘Account’ to complete the following steps: 
+
+Once the program code runs it is compiled, deployed and evaluated for approval, and `KaseiCoinCrowdsale` will hold an ICO to mint digital coins for the Mars colony economy.
+To interact with compiling, deploying and holding a `KaseiCoinCrowdsale` ICO to mint digital coins for the Mars colony, complete the following steps: 
 
 ### 1. Compile and Deploy Your Contract in the JavaScript VM. 
 
