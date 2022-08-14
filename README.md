@@ -77,7 +77,7 @@ Using 'Granache 2.5.4' app allows a quick setup of a local blockchain in a devel
 
 ## Installation Guide
 
-The Remix IDE is an open source application for developing, deploying, and administering smart contracts that run in Ethereum-based blockchains. First navigate to use the web version of this IDE, you don’t need to install any software for this module. Open your browser to the [Remix-Docs website](https://remix-ide.readthedocs.io/en/latest/) or use the links below. The OpenZeppelin contrat library `ERC20`; `ERC20Detailed`; `Crowdsale` and `MintedCrowdsale` are from the [OpenZeppelin documentationImport](https://github.com/OpenZeppelin/openzeppelin-contracts).
+The Remix IDE is an open source application for developing, deploying, and administering smart contracts that run in Ethereum-based blockchains. First navigate to use the web version of this IDE, you don’t need to install any software for this module. Open your browser to the [Remix-Docs website](https://remix-ide.readthedocs.io/en/latest/) or use the links below. The OpenZeppelin contract library `ERC20`; `ERC20Detailed`; `Crowdsale` and `MintedCrowdsale` are from the [OpenZeppelin documentationImport](https://github.com/OpenZeppelin/openzeppelin-contracts).
 
 
 1. [Remix Online IDE](https://remix.ethereum.org) 
@@ -107,11 +107,11 @@ This application is deployed and run for smart contract transactions to deposit 
 The user of the program application operates through the Remix IDE website that provides functionality to create an EthereumVM for blockchain transactions and perform the following:  
 
 Once the program code runs it is compiled, deployed and evaluated for approval, and `KaseiCoinCrowdsale` will hold an ICO to mint digital coins for the Mars colony economy.
-To interact with compiling, deploying and holding a `KaseiCoinCrowdsale` ICO to mint digital coins for the Mars colony, complete the following steps: 
+Complete the following steps to interact with compiling, deploying and holding a `KaseiCoinCrowdsale` ICO and mint digital coins for the Mars colony: 
 
-### 1. Compile and Deploy Your Contract in the JavaScript VM. 
+### 1. Compile and Deploy Your Contract in ReMix. 
 
-1.	In the Remix IDE, navigate to the “Deploy & Run Transactions” pane, and then make sure that “JavaScript VM” is selected as the environment. 
+1.	In the Remix IDE, navigate to the “Deploy & Run Transactions” pane, and then make sure that "Injected Provider- Metamask" wallet is selected for the environment. 
 - On the far left select 'Solidity'compiler; once compiled, the code runs in the **Ethereum Virtual Machine (EVM)**.
 
 2.	Click the Deploy button to deploy your smart contract, and then confirm that it successfully deployed.
