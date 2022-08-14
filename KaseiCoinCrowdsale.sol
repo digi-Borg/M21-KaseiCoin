@@ -10,14 +10,14 @@ import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/release-v2.5
 // * MintedCrowdsale
 contract KaseiCoinCrowdsale is Crowdsale, MintedCrowdsale { // UPDATE THE CONTRACT SIGNATURE TO ADD INHERITANCE
     
-    // Provide parameters for all of the features of your crowdsale, such as the `rate`, `wallet` for fundraising, and `token`.
+  // Provide parameters for all of the features of your crowdsale, such as the `rate`, `wallet` for fundraising, and `token`.
     constructor(
         uint rate,               // rate in TKN bits
         address payable wallet,  //address of sale benficiary
-        KaseiCoin token       
+        KaseiCoin token          // the KaseiCoin itself that the KaseiCoinCrowdsale will work with
     ) 
         Crowdsale(rate, wallet, token) 
-
+       
         public
     
     {
@@ -36,13 +36,13 @@ contract KaseiCoinCrowdsaleDeployer {
     constructor(
         string memory name,
         string memory symbol, 
-        address payable wallet
+        address payable wallet // this address will receive all Ether raised by the sale
     ) 
-        public 
+        public
     {
         // Create a new instance of the KaseiCoin contract.
         KaseiCoin token = new KaseiCoin(name, symbol, 0);
-
+        
         // Assign the token contract’s address to the `kasei_token_address` variable.
         kasei_token_address = address(token);
 
@@ -54,7 +54,7 @@ contract KaseiCoinCrowdsaleDeployer {
 
         // Set the `KaseiCoinCrowdsale` contract as a minter
         token.addMinter(kasei_crowdsale_address);
-
+        
         // Have the `KaseiCoinCrowdsaleDeployer` renounce its minter role.
         token.renounceMinter();
     }
