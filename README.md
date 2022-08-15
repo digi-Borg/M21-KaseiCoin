@@ -18,48 +18,63 @@ KaseiCoin will be a fungible token that is ERC-20 compliant. The crowdsale contr
 
 In the completed Solidity KaseiCoin Crowdsale smart contract a folder named `Evaluation_Evidence` contains images. These images are confirms of performance in a real-world, pre-production test of a KaseiCoin crowdsale. The transactions are designed to test the `KaseiCoin.sol`, `KaseiCoinCrowdsale.sol` and `KaseiCoinCrowdsaleDeployer` functionality in the JavaScript VM, as expected. In order to do so, deployment of the crowdsale is to a local blockchain using Remix, MetaMask, and Ganache.
 
-After deploying the contract, it’s time to test its functionality! After each step, capture a screenshot of the execution, and then save it in a folder named `Evaluation_Evidence`. 
+After deploying the contract, it’s time to test its functionality! After each step, capture a screenshot of the execution, and then save it in a folder named `Evaluation_Evidence`. *(5 tokens were previously purchased by owner account 3 prior to the following screenshots for testing.) 
 
 To interact with your compiled & deployed smart contract, complete the following steps. 
  
 
 1. Create & compile the `KaseiCoin.sol` contract using compiler version 0.5.5; take a screenshot of the successful compilation of the contract, and add it to the Evaluation_Evidence section: 
 
-    ![KaseiC-Compiled](./Evaluation_Evidence/KaseiC_Compiledp1-2022-08-09170347.png)
+    ![KaseiC-Compiled](./Evaluation_Evidence/1_KaseiC_Compiled-2022-08-09170347.png) 
 
 2. Create, define & compile the `KaseiCoinCrowdsale.sol` contract inheriting OpenZeppelin contracts `Crowdsale` & `MintedCrowdsale`; check for any errors and debug as needed; compile the contract using compiler version 0.5.5; take a screenshot of the successful compilation of the contract, and add it to the Evaluation_Evidence section. 
 
-    ![KaseiCoinCrowdsale](./Evaluation_Evidence/KCCrowdsale_Compiledp22022-08-09182256.png)
+    ![KaseiCoinCrowdsale](./Evaluation_Evidence/2_KCCrowdsale_Compiled-2022-08-09182256.png) 
 
 3. Create the `KaseiCoinCrowdsaleDeployer` and add the `KaseiCoin` and `KaseiCoinCrowdsale`  contract addresses; add the `name`, `symbol`, and `wallet` parameters to the `KaseiCoinCrowdsaleDeployer`; renounce its minter role; compile the contract using compiler version 0.5.5; check for any errors and debug as needed; take a screenshot of the successful compilation of the contract, and add it to the Evaluation_Evidence section: 
 
-    ![KaseiCoinDeployer](./Evaluation_Evidence/KCCrowdSaleDeployer_CompiledDeployp3-2022-08-09164602.png)
+    ![KaseiCoinCrowdsaleDeployer](./Evaluation_Evidence/3_KCCrwdSaleDeplyr_Compld-2022-08-09164602.png)
 
-4. Deploy the Crowdsale to a Local Blockchain
+4. Deploy the KAICrowdsale and KAIToken in transaction activities to the Local Blockchain
 
-- Deployment of the contract to a local blockchain with Remix, MetaMask, and Ganache.: 
-    ![Deposit1Eth](./Execution_Results/Dep_1Eth-2022-08-03175944.png)
+- The KAICrowdSaleDeployer contract with KAICrowdSale & KAIToken addresses for the blockchain with Remix, MetaMask, and Granache:
 
-- Use test accounts to buy new tokens from the crowdsale and check the balances associated with the test accounts.:  
-    ![Deposit10Eth](./Execution_Results/Dep_10Eth-2022-08-03180618.png) 
+    ![KAICrwdSaleAddr](./Evaluation_Evidence/4_KAICrwdSaleAddr-2022-08-14014851.png)  
 
-- After purchasing tokens with test accounts, view the total supply of minted tokens and the amount of wei raised by the crowdsale.:
-    ![Deposit5Eth](./Execution_Results/Dep_5Eth-2022-08-03181100.png) 
+- The KaseiCoinCrowdSale contract to buy tokens for beneficiaries and the KAICoin Minter:  
 
+    ![KAICrwdSaleContract](./Evaluation_Evidence/5_KAICrwdSContrct-2022-08-14015052.png)
 
-5. Optional: Extend the Crowdsale Contract by Using OpenZeppelin. extend the crowdsale contract to enhance its functionality. To do so, you will use the following OpenZeppelin contracts:  
+- Test of account 4 to buy 5 KAI from the crowdsale for account 4 and check the balance for the account:
+
+    ![A4Buy5KAI_forA4](./Evaluation_Evidence/6_A4Buy5KAI2022-08-14015434.png)  
+
+- Confirmation of purchase of 5 KAI for account 4:
+
+    ![A4Confirmof5KAIpurchase](./Evaluation_Evidence/7_A4BuyConfirm2022-08-14015622.png) 
+
+- Ether balance of purchase of 7 KAI for beneficiary account 5 by account 4, with total `weiRaised`: 
+
+    ![A4EthBalaftr7KAIpurchase](./Evaluation_Evidence/8_KAICrwdSaleA4BalFunds2022-08-14021214.png)
+
+    ![A5KAITokenBalance](./Evaluation_Evidence/9_A4tfr7KAItoA52022-08-14021400.png)
+
+- After purchasing tokens with test accounts, view the `totalSupply` of minted tokens and the amount of `weiRaised` by the crowdsale: *(total supply in owner wallet in `KaseiCoin` contract matches total `weiRaised` in `KaseiCoinCrowdsale` contract above with account 4, after 7 KAI purchase.)
+    ![A5KAITokenBalance](./Evaluation_Evidence/10_KAICoinTtlSpplyRaisd-2022-08-14183538.png)
+
+5. ### *Optional:* Extend the Crowdsale Contract by Using OpenZeppelin. extend the crowdsale contract to enhance its functionality. To do so, you will use the following OpenZeppelin contracts:  
 
 - `CappedCrowdsale`: This contract allows you to cap the total amount of ether that may be raised during your crowdsale.:
 
-    ![WithdrawalAcct1](./Execution_Results/Wtdrwl1_5Eth-2022-08-03182515.png) 
+    ![CappedCrowdsale](./Evaluation_Evidence/) 
 
 - `TimedCrowdsale`: This contract allows you to set a time limit for your crowdsale by adding an opening time and a closing time: 
 
-    ![WithdrawalAcct1](./Execution_Results/Wtdrwl1_5Eth2-2022-08-03182918.png)
+    ![TimedCrowdsale](./Evaluation_Evidence/)
 
 - `RefundablePostDeliveryCrowdsale`: Every time you launch a crowdsale, you set a goal amount of ether to raise. If the goal is not reached, it is common practice to refund your investors. This contract adds this capability to a crowdsale: 
  
-    ![WithdrawalAcct2](./Execution_Results/Wthdrwl2_10Eth-2022-08-03183403.png) 
+    ![RefundablePostDeliveryCrowdsale](./Evaluation_Evidence/) 
 
 
 ---
@@ -103,33 +118,32 @@ remix
 
 ## Usage
 
-This application is deployed and run for smart contract transactions to deposit and withdraw `eth` between user accounts in the EthereumVM.  It is launched from the Remix 0.25.1 using Solidity language for the **.sol** file to build the ` joint_savings.sol`. The 'Remix' GUI on the left side of the web page utilizes the program code to run the Smartcontracts Ethereum blockchain transactions. It is deployed in the Remix VM(London) JavaScript Environment utilizing the ‘Solidity’ compiler and tools. 
-The user of the program application operates through the Remix IDE website that provides functionality to create an EthereumVM for blockchain transactions and perform the following:  
+This program is run from `KaseiCoin.sol` and `KaseiCoinCrowdsale.sol` to deploy smart contract transactions on the blockchain. `KaseiCoin.sol` functions to mint digital coins for crytpocurrency circulation of Kaseicoin (`KAI`), while `KaseiCoinCrowdsale.sol`deploys and manages the entire crowdsale process for users to exchange `ETH` for `KAI` from their digital wallets. It is launched from the Remix 0.25.1 using Solidity language for the **.sol** file to build the `KaseiCoinCrowdsale.sol`. The 'Remix' GUI on the left side of the web page utilizes the program code to run the Smartcontracts on Ethereum blockchain transactions. It is deployed in 'Injected Provider- MetaMask' JavaScript Environment utilizing the ‘Solidity’ compiler, deployer and tools. 
 
-Once the program code runs it is compiled, deployed and evaluated for approval, and `KaseiCoinCrowdsale` will hold an ICO to mint digital coins for the Mars colony economy.
-Complete the following steps to interact with compiling, deploying and holding a `KaseiCoinCrowdsale` ICO and mint digital coins for the Mars colony: 
+Once the program code runs it is compiled, deployed and evaluated for approval, and `KaseiCoinCrowdsale` will mint digital coins for the Mars colony economy. Complete the following steps to interact with compiling, deploying and holding a `KaseiCoinCrowdsale` to mint digital coins for the Mars colony: 
 
 ### 1. Compile and Deploy Your Contract in ReMix. 
 
-1.	In the Remix IDE, navigate to the “Deploy & Run Transactions” pane, and then make sure that "Injected Provider- Metamask" wallet is selected for the environment. 
-- On the far left select 'Solidity'compiler; once compiled, the code runs in the **Ethereum Virtual Machine (EVM)**.
+1.	In the Remix IDE, select `KaseiCoin.sol` tab; then navigate to the left "Deploy & Run Transactions" pane, and make sure that "Injected Provider- Metamask" wallet is selected for the environment. 
 
-2.	Click the Deploy button to deploy your smart contract, and then confirm that it successfully deployed.
+- Click the Deploy button to deploy your smart contract, and then confirm that it successfully deployed.
+
 - The terminal can be used to check transactions details and start debugging. 
+
+- Once deployed, test for functionality with Ganache provided accounts minting Kaseicoins, receive `KAI` balances for accounts and `totalSupply`. 
+
+2. Select `KaseiCoinCrowdsale.sol` tab; then navigate to the left "Deploy & Run Transactions" pane, and make sure that "Injected Provider- Metamask" wallet is selected for the environment. Repeat the steps above for `KaseiCoin.sol`. 
+
+- upon deployment of `KaseiCoinCrowdsale.sol`   click on the left arrow to open the functions for the contract.  
+
 
 ### 2. Interact with Your Deployed Smart Contract. 
 
-1.	Use the setAccounts function to define the authorized Ethereum address that will be able to withdraw funds from your contract. 
+1.	After deployment of `KaseiCoin.sol` in ReMix navigate to `KaseiCoinCrowdsale.sol`, and set the 'Environment' to 'Injected Provider- Metamask'. MetaMask should open for deployment. Open 'Granache' and select Account Adress 'Private Key' for the owner account and copy the Private Key. In MetaMask select 'Import Account' and paste the key in the appropiate box. Repeat to open a 2nd account, and 3rd if you prefer. Select the 1st account imported in MetaMask. The account should appear in Remix under the 'Account' drop-box field. Now the contract addresses in ReMix should be ready for connection with 'MetaMask' and 'Granache' accounts.   
 
-- create new, dummy addresses on the [Vanity-ETH](https://vanity-eth.tk/) website, which includes an Ethereum vanity address generator. 
-
-2.	Test the deposit functionality of the smart contract by sending selected amounts of `ether`. After each transaction, use the `contractBalance` function to verify that the funds were added to your contract: 
-
-- Select 3 different deposit transaction amounts totaling more than 16 `ether` for withdrawals. 
+2.	Test the deposit functionality of the smart contracts by sending selected amounts of `ether` to buy new `KAI` tokens. After each transaction to `buyTokens`, check the account balances in Metamask to match the tranaction in `KaseiCoinCrowdsale` functions and the Granache accounts 'Transactions' and 'Blocks' on the blockchain to verify that the funds were added to the 'beneficiary account. 
 
 - Reminder that `ether` is counted in `wei` in the contract accounts. (use the website [Ethereum Unit Converter](https://eth-converter.com/) to do the conversion.) 
-
-3.	Once you’ve successfully deposited funds into your contract, test the contract’s withdrawal functionality by withdrawing 5 ether into accountOne and 10 ether into accountTwo. After each transaction, use the `contractBalance` function to verify that the funds were withdrawn from your contract. Also, use the `lastToWithdraw` and `lastWithdrawAmount` functions to verify that the address and amount were correct.
 
 
 ```
