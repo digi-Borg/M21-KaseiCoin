@@ -3,9 +3,9 @@ Minting tokens for a CrowdSale
 
 ![KaseiCoinCrowdsale-Title](./Images/KAI_Crowdsale_Title-2022-08-09162204.png) 
 
-*"Leading a project for a monetary system to develop a new cryptocurrency called KaseiCoin for a new Mars colony."* 
+*"Leading a project to develop a new cryptocurrency called KaseiCoin for a monetary system in a new Mars colony."* 
 
-
+--- 
 ## Background 
 
 After waiting for years and passing several tests, being selected by the Martian Aerospace Agency a new monetary system needs to be implemented for the first human colony on Mars. As a prominent fintech professional, I was chosen to lead a project to develop a monetary system for the new Mars colony. The decision is made to base this new monetary system on blockchain technology, and to define a new cryptocurrency called KaseiCoin. (“Kasei” means “Mars” in Japanese.)
@@ -115,10 +115,10 @@ remix
 
 
 ---
-
+#
 ## Usage
 
-This program is run from `KaseiCoin.sol` and `KaseiCoinCrowdsale.sol` to deploy smart contract transactions on the blockchain. `KaseiCoin.sol` functions to mint digital coins for crytpocurrency circulation of Kaseicoin (`KAI`), while `KaseiCoinCrowdsale.sol`deploys and manages the entire crowdsale process for users to exchange `ETH` for `KAI` from their digital wallets. It is launched from the Remix 0.25.1 using Solidity language for the **.sol** file to build the `KaseiCoinCrowdsale.sol`. The 'Remix' GUI on the left side of the web page utilizes the program code to run the Smartcontracts on Ethereum blockchain transactions. It is deployed in 'Injected Provider- MetaMask' JavaScript Environment utilizing the ‘Solidity’ compiler, deployer and tools. 
+This program is run from [`KaseiCoin.sol`](./KaseiCoin.sol) and [`KaseiCoinCrowdsale.sol`](./KaseiCoinCrowdsale.sol) to deploy smart contract transactions on the blockchain. `KaseiCoin.sol` functions to mint digital coins for crytpocurrency circulation of Kaseicoin (`KAI`), while `KaseiCoinCrowdsale.sol`deploys and manages the entire crowdsale process for users to exchange `ETH` for `KAI` from their digital wallets. It is launched from the Remix 0.25.1 using Solidity language for the **.sol** file to build the `KaseiCoinCrowdsale.sol`. The 'Remix' GUI on the left side of the web page utilizes the program code to run the Smartcontracts on Ethereum blockchain transactions. It is deployed in 'Injected Provider- MetaMask' JavaScript Environment utilizing the ‘Solidity’ compiler, deployer and tools. 
 
 Once the program code runs it is compiled, deployed and evaluated for approval, and `KaseiCoinCrowdsale` will mint digital coins for the Mars colony economy. Complete the following steps to interact with compiling, deploying and holding a `KaseiCoinCrowdsale` to mint digital coins for the Mars colony: 
 
@@ -161,11 +161,12 @@ KaseiCoinCrowdsale.sol
 Dana Hayes: nydane1@gmail.com
 
 
----
-
+--- 
+#
 ## License  
 
 Columbia U. Engineering 
---
+
+#
 [BSD 2-Clause LicenseCopyright (c) 2022, digi-Borg
 All rights reserved.](/LICENSE)
